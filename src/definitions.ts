@@ -1,3 +1,10 @@
 export interface RootCheckPluginPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  isJailbrokenOrRooted(): Promise<JailbreakRootResult>;
+  isSimulator(): Promise<JailbreakRootResult>;
+  isDebuggedMode(): Promise<JailbreakRootResult>;
+  exitApp(): void;
+}
+
+export interface JailbreakRootResult {
+  result: boolean;
 }

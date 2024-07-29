@@ -1,13 +1,28 @@
 import { WebPlugin } from '@capacitor/core';
 
-import type { RootCheckPluginPlugin } from './definitions';
+import type { RootCheckPluginPlugin, JailbreakRootResult } from './definitions';
 
 export class RootCheckPluginWeb
   extends WebPlugin
   implements RootCheckPluginPlugin
 {
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+  exitApp(): void {
+    // Do Nothing
+  }
+
+  async isJailbrokenOrRooted(): Promise<JailbreakRootResult> {
+    return {
+      result: false,
+    };
+  }
+  async isSimulator(): Promise<JailbreakRootResult> {
+    return {
+      result: false,
+    };
+  }
+  async isDebuggedMode(): Promise<JailbreakRootResult> {
+    return {
+      result: false,
+    };
   }
 }
